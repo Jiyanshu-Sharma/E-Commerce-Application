@@ -16,7 +16,12 @@ connectCloudinary();
 
 // middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 
+    'http://16.170.7.109:3000'
+  ],
+  credentials:true,
+}));
 
 // api endpoints
 app.use("/api/user", userRouter);
